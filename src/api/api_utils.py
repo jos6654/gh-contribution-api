@@ -13,10 +13,13 @@ def list_repos(org):
     return repo_list
 
 def new_contributor(repo, contributor):
-    return None
+    res = requests.get("https://api.github.com/repos/%s/commits?per_page=1&author=%s" % (repo, contributor["login"]))[0]["commit"]
+    return {"contribution": contributor["contributions"], "image_url": contributor["avatar_url"], "email": res["committer"]["email"], \
+        "latest_commit_message": res["message"], "date": res["committer"]["date"]}
+
 
 def sort_contributors(repos):
-    # {"contribution": 123, "image_url": xyz, "email": xyz, "latest_commit": commit_url}
+    # {"contribution": 123, "image_url": xyz, "email": xyz, "latest_commit_message": message, "date": ISO 8601}
     contributors = {}
     for r in repos:
         res = requests.get("https://api.github.com/repos/%s?per_page=100" % r["full_name"])
@@ -27,7 +30,6 @@ def sort_contributors(repos):
                     contributors[c["login"]]["contribution"] += c["contributions"]
                     # Update latest commit
                 else:
-                    # New contributor
                     contributors[c["login"]] = new_contributor(r["full_name"], c)
 
             res = requests.get("https://api.github.com/repos/%s?per_page=100&page=%s" % (r["full_name"], count))
