@@ -6,7 +6,7 @@ from api.api import *
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(Contribution, '/contribution/<string:organization>')
+api.add_resource(UserStats, '/user_stats/<string:username>')
 
 if __name__ == '__main__':
     app.run(debug=True)
