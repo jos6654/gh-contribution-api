@@ -52,6 +52,7 @@ Run local server with
         "avg_repo_size": "10.1 MB",
         "languages": {
             "JavaScript": 31,
+            "null": 19,
             "PHP": 12,
             "CSS": 7,
             "Objective-C": 6,

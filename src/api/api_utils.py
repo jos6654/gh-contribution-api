@@ -39,8 +39,7 @@ def collect_stats(username, forked):
         stats['num_stargazers'] += repo['stargazers_count']
         stats['num_forks'] += repo['forks_count']
         stats['avg_repo_size'] += repo['size']
-        if repo['language']:
-            stats['languages'][repo['language']] = stats['languages'].setdefault(repo['language'], 0) + 1
+        stats['languages'][repo['language']] = stats['languages'].setdefault(repo['language'], 0) + 1
 
     # Make file size human readable, then sort languages
     stats['avg_repo_size'] = readable_file_size(stats['avg_repo_size']/stats['num_repos'])
