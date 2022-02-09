@@ -29,7 +29,7 @@ Run local server with
 
 | Name   | Data Type | Description |
 | ------ | --------- | ----------- |
-| forked | boolean   | (Optional) If set to `false` will only include results from repositories that are not forked
+| forked | boolean   | (Optional) If set to `true` it will include results from all repositories. If set to `false` it will only include results from repositories that are not forked
 
 
 ### Example Request
