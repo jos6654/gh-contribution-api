@@ -14,7 +14,7 @@ with the contents:
 
 `token = 'your_token'`
 
-Instructions for creating a personal access token can be found [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+Instructions for creating a personal access token can be found [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). When creating the token, no scope selections are necessary.
 
 ## Usage
 
